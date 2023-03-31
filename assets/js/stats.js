@@ -54,7 +54,8 @@ function crearTablaCategorias(arr, prop) {
             <th>Percentage of Attendance</th>
         </tr>
     </thead>
-    <tbody>`
+    <tbody>
+    `
 
     contenido = ""
     for (let i = 0; i < gan.length; i++) {
