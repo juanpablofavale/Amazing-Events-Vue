@@ -8,6 +8,10 @@ body{
     background: linear-gradient(#c9a9a9, #cccccc);
 }
 
+h2{
+    text-align: center;
+}
+
 /*  HEADER  */
 
 header{
