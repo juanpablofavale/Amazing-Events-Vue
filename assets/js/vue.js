@@ -39,6 +39,10 @@ const app = createApp({
                     this.datosFiltrados = this.datos
                     this.categorias = this.obtenerCategorias(this.datos)
                     this.armarTablas()
+                    this.buscarPorID()
+                    this.mayorCapacidad()
+                    this.mayor()
+                    this.menor()
                 })
         },
         obtenerCategorias(arr) {
@@ -70,22 +74,6 @@ const app = createApp({
 
             [this.gananciasUpcoming, this.asistenciasUpcoming] = this.obtGanYAsis(arrUpcoming, "estimate", this.categoriasUpcoming);
             [this.gananciasPast, this.asistenciasPast] = this.obtGanYAsis(arrPast, "assistance", this.categoriasPast);
-        },
-    },
-    computed: {
-        past() {
-            this.datos = this.datos.filter(evnt => this.currentDate > evnt.date)
-        },
-        upcoming() {
-            this.datos = this.datos.filter(evnt => this.currentDate < evnt.date)
-        },
-        filtroDoble() {
-            let filtroTexto = this.datos.filter(evnt => evnt.name.toLowerCase().includes(this.textoBusqueda.toLowerCase()))
-            if (!this.categoriasSeleccionadas.length) {
-                this.datosFiltrados = filtroTexto
-            } else {
-                this.datosFiltrados = filtroTexto.filter(evnt => this.categoriasSeleccionadas.includes(evnt.category))
-            }
         },
         buscarPorID() {
             const search = location.search
@@ -129,6 +117,23 @@ const app = createApp({
             });
             menor.porc = porcMenor.toFixed(2)
             this.menorC = menor
+        },
+
+    },
+    computed: {
+        past() {
+            this.datos = this.datos.filter(evnt => this.currentDate > evnt.date)
+        },
+        upcoming() {
+            this.datos = this.datos.filter(evnt => this.currentDate < evnt.date)
+        },
+        filtroDoble() {
+            let filtroTexto = this.datos.filter(evnt => evnt.name.toLowerCase().includes(this.textoBusqueda.toLowerCase()))
+            if (!this.categoriasSeleccionadas.length) {
+                this.datosFiltrados = filtroTexto
+            } else {
+                this.datosFiltrados = filtroTexto.filter(evnt => this.categoriasSeleccionadas.includes(evnt.category))
+            }
         },
     }
 }).mount('#app')
