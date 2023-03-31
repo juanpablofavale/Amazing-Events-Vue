@@ -117,7 +117,7 @@ main .img-details{
     width: 250px;
 }
 
-#details .container{
+.details .container{
     background: linear-gradient(270deg, #ff007791, #7e003b);
     color: white;
     border-radius: 5px;
@@ -126,7 +126,7 @@ main .img-details{
     width: 270px;
 }
 
-#details .descripcion{
+.details .descripcion{
     padding: 10px;
     text-align: center;
     width: 100%;
@@ -231,16 +231,16 @@ a .bi-whatsapp:hover{
         padding-left: 30%;
         padding-right: 30%;
     }
-    #details .container{
+    .details .container{
         padding: 0 !important;
         width: 60%;
         min-height: 300px;
     }
-    #details figure{
+    .details figure{
         padding: 20px;
         margin-bottom: 0;
     }
-    #details .descripcion{
+    .details .descripcion{
         height: 100%;
         border: none;
         border-top: 2px solid white;
@@ -263,10 +263,10 @@ a .bi-whatsapp:hover{
 }
 
 @media screen and (min-width: 1200px){
-    #details .container{
+    .details .container{
         flex-direction: row !important;
     }
-    #details .descripcion{
+    .details .descripcion{
         border: none;
         border-left: 2px solid white;
     }

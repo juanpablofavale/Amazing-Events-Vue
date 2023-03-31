@@ -10,7 +10,8 @@ const app = createApp({
             categorias: [],
             categoriasSeleccionadas:[],
             textoBusqueda:"",
-            pagina:""
+            pagina:"",
+            detalles:[]
         }
     },
     created(){
@@ -28,8 +29,6 @@ const app = createApp({
                 this.currentDate = data.currentDate
                 this.datosFiltrados = this.datos
                 this.obtenerCategorias(this.datos)
-                console.log(this.categorias)
-                //console.log(this.data)
             })
         },
         obtenerCategorias(arr){
@@ -54,6 +53,11 @@ const app = createApp({
             }else{
                 this.datosFiltrados = filtroTexto.filter(evnt => this.categoriasSeleccionadas.includes(evnt.category))
             }
+        },
+        buscarPorID(){
+            const search = location.search
+            const id = new URLSearchParams(search).get("id")
+            this.detalles = this.datos.find(evnt => evnt._id == id)
         }
     }
 }).mount('#app')
